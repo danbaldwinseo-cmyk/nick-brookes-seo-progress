@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Nick Brookes Group — SEO Progress Report | Laventus Digital</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap');
+:root{
+  --bg:#000;--blue:#4FA4FF;--purple:#8A4DFF;--cyan:#00d4ff;
+  --green:#22c55e;--amber:#f59e0b;--white:#fff;
+  --muted:rgba(255,255,255,0.55);
+  --card:rgba(255,255,255,0.06);
+  --cb:rgba(255,255,255,0.12);
+  --grad:linear-gradient(90deg,#4FA4FF,#8A4DFF);
+  --box:1440px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--white);width:100vw;height:100vh}
+.deck{position:relative;width:100vw;height:100vh}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .45s ease;overflow:hidden;display:flex;flex-direction:column}
+.slide.active{opacity:1;pointer-events:all}
+.slide.amb::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(79,164,255,.08) 0%,transparent 70%),radial-gradient(ellipse 50% 60% at 20% 80%,rgba(138,77,255,.08) 0%,transparent 70%);pointer-events:none}
+.slide.amb::after{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(79,164,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(79,164,255,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.si{position:relative;z-index:1;display:flex;flex-direction:column;width:100%;height:100%}
+.box{width:100%;max-width:var(--box);margin:0 auto;padding:24px 60px 48px;display:flex;flex-direction:column;height:100%}
+.tb{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;margin-bottom:12px}
+.tb-l{display:flex;align-items:center;gap:16px}
+.ll img{height:28px;opacity:.85}
+.ls{width:1px;height:24px;background:rgba(255,255,255,.2)}
+.sl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.content{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:0}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ey{font-size:16px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+h2{font-size:clamp(22px,2.4vw,36px);font-weight:800;line-height:1.15}
+h3{font-size:clamp(14px,1.35vw,18px);font-weight:700;line-height:1.3}
+.bt{font-size:clamp(14px,1.15vw,16px);font-weight:400;line-height:1.65;color:rgba(255,255,255,.8)}
+.bt strong{color:var(--white);font-weight:700}
+.cb2{font-size:14px;color:rgba(255,255,255,.65);line-height:1.55}
+.ct{font-size:15px;font-weight:800;margin-bottom:4px;transition:color .3s}
+.sm{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5}
+.gl{height:1px;background:var(--grad);opacity:.35;margin:7px 0;flex-shrink:0}
+.card{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--cb);border-radius:14px;padding:13px 17px;transition:all .3s ease}
+.card:hover{border-color:transparent;background-image:linear-gradient(rgba(10,10,20,.88),rgba(10,10,20,.88)),linear-gradient(135deg,#4189d7,#7E3AF2);background-origin:border-box;background-clip:padding-box,border-box;box-shadow:-8px -8px 28px rgba(65,137,215,.2),8px 8px 28px rgba(126,58,242,.2)}
+.card:hover .ct{color:var(--cyan)!important}
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.four{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:11px}
+.five{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px}
+.callout-green{border-left:3px solid var(--green);border-radius:0 12px 12px 0;background:rgba(34,197,94,.07);padding:13px 17px}
+.callout-blue{border-left:3px solid var(--blue);border-radius:0 12px 12px 0;background:rgba(79,164,255,.07);padding:13px 17px}
+.callout-amber{border-left:3px solid var(--amber);border-radius:0 12px 12px 0;background:rgba(245,158,11,.07);padding:13px 17px}
+.callout-red{border-left:3px solid #ff7a5a;border-radius:0 12px 12px 0;background:rgba(255,122,90,.07);padding:13px 17px}
+.blist{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.bitem{display:flex;gap:10px;align-items:flex-start}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--grad);margin-top:6px;flex-shrink:0}
+.bdot.green{background:var(--green)}
+.bdot.blue{background:var(--blue)}
+.bdot.amber{background:var(--amber)}
+.bdot.red{background:#ff7a5a}
+.btxt{font-size:clamp(13px,1.05vw,15px);line-height:1.6;color:rgba(255,255,255,.8)}
+.btxt strong{color:var(--white)}
+.stag{display:inline-flex;align-items:center;background:var(--grad);color:white;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 12px;border-radius:999px;margin-bottom:8px}
+.nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:100;background:rgba(0,0,0,.55);backdrop-filter:blur(12px);padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.1)}
+.nb{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--muted);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .25s ease}
+.nb:hover{color:var(--white);border-color:transparent;background:linear-gradient(rgba(10,10,20,.9),rgba(10,10,20,.9)) padding-box,linear-gradient(135deg,#4FA4FF,#8A4DFF) border-box;box-shadow:0 0 14px rgba(79,164,255,.45),0 0 28px rgba(138,77,255,.2)}
+.nd{display:flex;gap:6px;align-items:center}
+.ndot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .25s}
+.ndot.active{background:var(--blue);transform:scale(1.3)}
+.nc{font-size:12px;font-weight:700;color:var(--muted);min-width:36px;text-align:center}
+.a1{animation:fadeUp .5s ease both}
+.a2{animation:fadeUp .5s ease .12s both}
+.a3{animation:fadeUp .5s ease .22s both}
+.a4{animation:fadeUp .5s ease .32s both}
+.a5{animation:fadeUp .5s ease .42s both}
+.a6{animation:fadeUp .5s ease .52s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.ibadge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#ff7a5a;color:#000;font-size:11px;font-weight:900;flex-shrink:0;margin-top:1px}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.1)}
+.tbl td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle;line-height:1.4}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td strong{color:var(--white)}
+.num-badge{width:28px;height:28px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}
+.stat-val{font-size:clamp(28px,3vw,44px);font-weight:900;line-height:1}
+.stat-lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.stat-chg{font-size:14px;font-weight:800;margin-top:4px}
+.chg-up{color:var(--green)}
+.chg-dn{color:#ff7a5a}
+.chg-neu{color:var(--amber)}
+.url-pill{display:inline-block;background:rgba(79,164,255,.1);border:1px solid rgba(79,164,255,.25);border-radius:6px;padding:2px 9px;font-size:12px;font-weight:700;color:var(--blue);font-family:monospace}
+/* mini bar chart */
+.bar-wrap{display:flex;align-items:flex-end;gap:5px;height:60px}
+.bar{border-radius:4px 4px 0 0;min-width:22px;transition:opacity .2s}
+.bar:hover{opacity:.8}
+.bar-lbl{font-size:10px;color:var(--muted);text-align:center;margin-top:3px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ═══════════════════════════════════════════════════
+     S1: TITLE
+════════════════════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="si" style="justify-content:center;align-items:center;text-align:center;padding:60px">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(79,164,255,.07) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 30% 70%,rgba(138,77,255,.07) 0%,transparent 60%);pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(79,164,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(79,164,255,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;max-width:860px">
+      <div class="a1" style="margin-bottom:38px">
+        <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:80px;max-width:400px;object-fit:contain">
+      </div>
+      <div class="a2" style="height:1px;width:60%;background:var(--grad);opacity:.3;margin-bottom:28px"></div>
+      <p class="a2 ey" style="margin-bottom:10px">Prepared by Laventus Digital</p>
+      <h2 class="a3" style="font-size:clamp(28px,3.2vw,48px);font-weight:900;margin-bottom:12px">
+        SEO Progress Report<br><span class="gt">January – May 2026</span>
+      </h2>
+      <p class="a4 bt" style="max-width:520px;text-align:center;color:rgba(255,255,255,.55)">Year-on-year organic performance review covering search visibility, traffic, keyword rankings and lead generation. Comparison period: 1 Jan – 26 May 2025.</p>
+      <div class="a5" style="height:1px;width:40%;background:var(--grad);opacity:.2;margin:28px auto 24px"></div>
+      <div class="a5" style="display:flex;align-items:center;gap:10px;opacity:.65">
+        <img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital" style="height:24px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Laventus Digital</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     S2: EXECUTIVE SUMMARY
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s2"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Executive Summary</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Jan – May 2026 vs Jan – May 2025</p>
+    <h2 class="a2">Strong organic growth across<br><span class="gt">traffic, visibility and leads.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 five" style="margin-top:14px">
+      <div class="card" style="text-align:center;padding:16px 12px">
+        <div class="stat-val gt">6,093</div>
+        <div class="stat-lbl">Organic Clicks</div>
+        <div class="stat-chg chg-up">▲ +18.6% YoY</div>
+        <div class="sm" style="margin-top:4px">vs 5,136</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 12px">
+        <div class="stat-val gt">468k</div>
+        <div class="stat-lbl">Impressions</div>
+        <div class="stat-chg chg-up">▲ +4.6% YoY</div>
+        <div class="sm" style="margin-top:4px">vs 448k</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 12px">
+        <div class="stat-val gt">1.30%</div>
+        <div class="stat-lbl">Overall CTR</div>
+        <div class="stat-chg chg-up">▲ +0.15pp YoY</div>
+        <div class="sm" style="margin-top:4px">vs 1.15%</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 12px">
+        <div class="stat-val gt">2,113</div>
+        <div class="stat-lbl">Organic Leads</div>
+        <div class="stat-chg chg-up">▲ +23.9% YoY</div>
+        <div class="sm" style="margin-top:4px">vs 1,706</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 12px">
+        <div class="stat-val gt">34.7%</div>
+        <div class="stat-lbl">Click-to-Lead Rate</div>
+        <div class="stat-chg chg-up">▲ +1.5pp YoY</div>
+        <div class="sm" style="margin-top:4px">vs 33.2%</div>
+      </div>
+    </div>
+    <div class="a4 tp" style="margin-top:12px;gap:12px">
+      <div class="callout-green">
+        <p class="ct" style="color:var(--green);font-size:14px">Homepage +38.5%</p>
+        <p class="sm">2,694 clicks vs 1,945. The most significant individual page improvement on the site.</p>
+      </div>
+      <div class="callout-green">
+        <p class="ct" style="color:var(--green);font-size:14px">Organic leads every month up</p>
+        <p class="sm">All five months show year-on-year growth. March led with +38%, April +32%.</p>
+      </div>
+      <div class="callout-amber">
+        <p class="ct" style="color:var(--amber);font-size:14px">Chester, Northwich, Wrexham</p>
+        <p class="sm">Three key location pages have lost clicks YoY — position drops identified and addressable.</p>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S3: ORGANIC TRAFFIC
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s3"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Organic Traffic Overview</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Google Search Console — sc-domain:nickbrookes.co.uk</p>
+    <h2 class="a2">Clicks and CTR both up.<br><span class="gt">Impressions tells a more nuanced story.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 sp" style="gap:16px;margin-top:10px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="card">
+          <div class="sp" style="gap:8px">
+            <div style="text-align:center">
+              <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Clicks 2026</div>
+              <div style="font-size:36px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">6,093</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Clicks 2025</div>
+              <div style="font-size:36px;font-weight:900;color:rgba(255,255,255,.45)">5,136</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:8px"><span style="font-size:18px;font-weight:900;color:var(--green)">▲ +957 clicks &nbsp;(+18.6%)</span></div>
+        </div>
+        <div class="card">
+          <div class="sp" style="gap:8px">
+            <div style="text-align:center">
+              <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Impressions 2026</div>
+              <div style="font-size:36px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">468k</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Impressions 2025</div>
+              <div style="font-size:36px;font-weight:900;color:rgba(255,255,255,.45)">448k</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:8px"><span style="font-size:18px;font-weight:900;color:var(--green)">▲ +20k impressions &nbsp;(+4.6%)</span></div>
+        </div>
+        <div class="card">
+          <div class="sp" style="gap:8px">
+            <div style="text-align:center">
+              <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">CTR 2026</div>
+              <div style="font-size:36px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">1.30%</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">CTR 2025</div>
+              <div style="font-size:36px;font-weight:900;color:rgba(255,255,255,.45)">1.15%</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:8px"><span style="font-size:18px;font-weight:900;color:var(--green)">▲ +0.15pp improvement</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="callout-blue">
+          <p class="ct" style="color:var(--blue);margin-bottom:6px">Why impressions are up modestly despite strong click growth</p>
+          <p class="sm">The site is now ranking in more visible positions, generating higher-quality impressions that convert to clicks. Lower-quality impressions — where the site appeared far down page 2 or beyond — have reduced.</p>
+        </div>
+        <div class="callout-blue">
+          <p class="ct" style="color:var(--blue);margin-bottom:6px">The "skip hire near me" effect — a positive story</p>
+          <p class="sm">In 2025, Nick Brookes appeared for "skip hire near me" at an average position of <strong style="color:var(--white)">59</strong> — generating 25,743 low-quality impressions that almost never converted to clicks. In 2026, Google's AI Overviews and local pack have taken over that query entirely, reducing organic impressions to 2,885. Crucially, <strong style="color:var(--white)">Nick Brookes' ranking has not dropped</strong> — if anything it has improved. Google has simply removed the query from organic results for most users. This is an industry-wide shift affecting every skip hire business in the country and accounts for the majority of the raw impressions variance between the two periods.</p>
+        </div>
+        <div class="callout-green">
+          <p class="ct" style="color:var(--green);margin-bottom:6px">Average position improving significantly</p>
+          <p class="sm">Across the top 20 ranking queries, average position has improved from <strong style="color:var(--white)">7.1 in 2025</strong> to <strong style="color:var(--white)">5.2 in 2026</strong>. The site is moving from the bottom of page 1 to the top half — where click-through rates are dramatically higher.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S4: PAGE PERFORMANCE
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s4"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Page Performance</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Click performance — all pages, Jan–May 2026 vs Jan–May 2025</p>
+    <h2 class="a2">Most pages up. Three key<br><span class="gt">location pages need attention.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 sp" style="gap:14px;margin-top:8px">
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:7px">Winners</p>
+        <table class="tbl">
+          <thead><tr><th>Page</th><th>2026</th><th>2025</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Homepage</strong></td><td>2,694</td><td>1,945</td><td><span class="chg-up">+38.5%</span></td></tr>
+            <tr><td><strong>/skip-hire/</strong> (generic)</td><td>175</td><td>68</td><td><span class="chg-up">+157%</span></td></tr>
+            <tr><td><strong>/aggregates/</strong></td><td>120</td><td>44</td><td><span class="chg-up">+173%</span></td></tr>
+            <tr><td><strong>/demolition/</strong></td><td>61</td><td>37</td><td><span class="chg-up">+65%</span></td></tr>
+            <tr><td><strong>/skip-hire-sandbach/</strong></td><td>123</td><td>79</td><td><span class="chg-up">+56%</span></td></tr>
+            <tr><td><strong>/concrete/</strong></td><td>190</td><td>133</td><td><span class="chg-up">+43%</span></td></tr>
+            <tr><td><strong>/grab-hire-crewe/</strong></td><td>37</td><td>14</td><td><span class="chg-up">+164%</span></td></tr>
+            <tr><td><strong>/skip-hire-knutsford/</strong></td><td>160</td><td>136</td><td><span class="chg-up">+18%</span></td></tr>
+            <tr><td><strong>/skip-hire-crewe/</strong></td><td>542</td><td>519</td><td><span class="chg-up">+4.4%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#ff7a5a;margin-bottom:7px">Needs Attention</p>
+        <table class="tbl">
+          <thead><tr><th>Page</th><th>2026</th><th>2025</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr><td><strong>/skip-hire-wrexham/</strong></td><td>131</td><td>219</td><td><span class="chg-dn">−40.2%</span></td></tr>
+            <tr><td><strong>/skip-hire-northwich/</strong></td><td>194</td><td>268</td><td><span class="chg-dn">−27.6%</span></td></tr>
+            <tr><td><strong>/skip-hire-macclesfield/</strong></td><td>87</td><td>129</td><td><span class="chg-dn">−32.6%</span></td></tr>
+            <tr><td><strong>/skip-hire-chester/</strong></td><td>280</td><td>319</td><td><span class="chg-dn">−12.2%</span></td></tr>
+            <tr><td><strong>/skip-hire-runcorn/</strong></td><td>162</td><td>192</td><td><span class="chg-dn">−15.6%</span></td></tr>
+            <tr><td><strong>/skip-hire-nantwich/</strong></td><td>160</td><td>178</td><td><span class="chg-dn">−10.1%</span></td></tr>
+          </tbody>
+        </table>
+        <div class="callout-amber" style="margin-top:10px">
+          <p class="sm"><strong style="color:var(--white)">Two pages missing from 2026:</strong> <span class="url-pill">/skip-hire-child/</span> (69 clicks in 2025) and <span class="url-pill">/septic-tank-envirocare/</span> (68 clicks) are no longer appearing. These pages should be checked — if they still exist, they need investigation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S5: KEYWORD RANKINGS
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s5"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Keyword Rankings</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Top queries — average position & click performance</p>
+    <h2 class="a2">Brand queries dominating. Broader<br><span class="gt">commercial terms showing mixed movement.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 sp" style="gap:14px;margin-top:8px">
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:7px">Position gains / click growth</p>
+        <table class="tbl">
+          <thead><tr><th>Query</th><th>Clicks 26</th><th>Clicks 25</th><th>Pos 26</th><th>Pos 25</th></tr></thead>
+          <tbody>
+            <tr><td><strong>nick brookes</strong></td><td>961</td><td>516</td><td>1.4</td><td>1.2</td></tr>
+            <tr><td><strong>skip hire crewe</strong></td><td>246</td><td>191</td><td>4.8</td><td>3.8</td></tr>
+            <tr><td><strong>skip hire winsford</strong></td><td>76</td><td>93</td><td>6.8</td><td>3.3</td></tr>
+            <tr><td><strong>nick brookes concrete</strong></td><td>57</td><td>39</td><td>3.9</td><td>1.0</td></tr>
+            <tr><td><strong>skip hire knutsford</strong></td><td>47</td><td>65</td><td>5.1</td><td>1.9</td></tr>
+            <tr><td><strong>skip hire sandbach</strong></td><td>42</td><td>41</td><td>6.6</td><td>5.7</td></tr>
+            <tr><td><strong>skip hire near me</strong></td><td>37</td><td>70</td><td>13.2</td><td>59.4</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-blue" style="margin-top:10px">
+          <p class="sm"><strong style="color:var(--white)">"skip hire near me"</strong> — position improved dramatically from 59 to 13, yet clicks halved. This confirms Google's local pack and AI Overviews are intercepting this query before organic results. Not fixable through SEO alone.</p>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#ff7a5a;margin-bottom:7px">Position drops to address</p>
+        <table class="tbl">
+          <thead><tr><th>Query</th><th>Clicks 26</th><th>Clicks 25</th><th>Pos 26</th><th>Pos 25</th></tr></thead>
+          <tbody>
+            <tr><td><strong>skip hire chester</strong></td><td>77</td><td>130</td><td>10.2</td><td>7.1</td></tr>
+            <tr><td><strong>skip hire northwich</strong></td><td>82</td><td>106</td><td>6.4</td><td>4.4</td></tr>
+            <tr><td><strong>skip hire wrexham</strong></td><td>31</td><td>78</td><td>11.2</td><td>8.3</td></tr>
+            <tr><td><strong>skip hire macclesfield</strong></td><td>35</td><td>63</td><td>8.7</td><td>7.8</td></tr>
+            <tr><td><strong>nick brookes skips</strong></td><td>349</td><td>395</td><td>2.7</td><td>1.1</td></tr>
+            <tr><td><strong>skip hire nantwich</strong></td><td>103</td><td>98</td><td>6.0</td><td>3.5</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-amber" style="margin-top:10px">
+          <p class="sm"><strong style="color:var(--white)">Chester, Northwich and Wrexham</strong> have all slipped half a page or more. These are well-established pages and the drops are most likely due to increased local competition. Fresh content, stronger internal linking and local signals should recover these positions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S6: ORGANIC LEADS
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s6"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Organic Leads — WhatConverts</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">All organic search — calls and forms combined</p>
+    <h2 class="a2">407 more organic leads.<br><span class="gt">Every single month up year on year.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 sp" style="gap:16px;margin-top:10px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="card" style="text-align:center;padding:20px">
+          <div style="font-size:52px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1">2,113</div>
+          <div style="font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px">Organic Leads 2026</div>
+          <div style="font-size:20px;font-weight:900;color:var(--green);margin-top:8px">▲ +23.9% vs 2025 (1,706)</div>
+        </div>
+        <div class="sp" style="gap:10px">
+          <div class="card" style="text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--blue)">1,128</div>
+            <div class="sm">Phone calls 2026</div>
+            <div style="font-size:13px;font-weight:800;color:var(--green);margin-top:3px">▲ +34.8%</div>
+            <div class="sm">vs 837</div>
+          </div>
+          <div class="card" style="text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--purple)">983</div>
+            <div class="sm">Web forms 2026</div>
+            <div style="font-size:13px;font-weight:800;color:var(--green);margin-top:3px">▲ +13.1%</div>
+            <div class="sm">vs 869</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Monthly breakdown</p>
+        <table class="tbl">
+          <thead><tr><th>Month</th><th>2026</th><th>2025</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr><td><strong>January</strong></td><td>297</td><td>247</td><td><span class="chg-up">+20.2%</span></td></tr>
+            <tr><td><strong>February</strong></td><td>344</td><td>312</td><td><span class="chg-up">+10.3%</span></td></tr>
+            <tr><td><strong>March</strong></td><td>503</td><td>364</td><td><span class="chg-up">+38.2%</span></td></tr>
+            <tr><td><strong>April</strong></td><td>576</td><td>437</td><td><span class="chg-up">+31.8%</span></td></tr>
+            <tr><td><strong>May (to 26th)</strong></td><td>393</td><td>346</td><td><span class="chg-up">+13.6%</span></td></tr>
+          </tbody>
+        </table>
+        <div class="callout-green">
+          <p class="sm">March and April — peak season for skip hire — showed the strongest growth at <strong style="color:var(--white)">+38%</strong> and <strong style="color:var(--white)">+32%</strong>. SEO delivering hardest when commercial demand is highest.</p>
+        </div>
+        <div class="callout-blue">
+          <p class="ct" style="color:var(--blue);margin-bottom:4px">Bing organic — a notable win</p>
+          <p class="sm">Bing organic leads grew from <strong style="color:var(--white)">258 in 2025</strong> to <strong style="color:var(--white)">399 in 2026</strong> — up <strong style="color:var(--white)">+55%</strong>. With Bing powering Microsoft's AI search and Copilot, this channel is growing in importance and the site is well positioned to benefit further.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S7: CLICK TO LEAD
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s7"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Click-to-Lead Conversion</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Organic clicks → organic leads</p>
+    <h2 class="a2">More visitors converting.<br><span class="gt">Rate up and volume up simultaneously.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3" style="margin-top:12px">
+      <div class="tp" style="gap:14px;margin-bottom:16px">
+        <div class="card" style="text-align:center;padding:20px 14px">
+          <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">2026 Conversion Rate</div>
+          <div style="font-size:52px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1">34.7%</div>
+          <div class="sm" style="margin-top:6px">2,113 leads from 6,093 clicks</div>
+        </div>
+        <div class="card" style="text-align:center;padding:20px 14px">
+          <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">2025 Conversion Rate</div>
+          <div style="font-size:52px;font-weight:900;color:rgba(255,255,255,.45);line-height:1">33.2%</div>
+          <div class="sm" style="margin-top:6px">1,706 leads from 5,136 clicks</div>
+        </div>
+        <div class="card" style="text-align:center;padding:20px 14px">
+          <div style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Year-on-Year Change</div>
+          <div style="font-size:52px;font-weight:900;color:var(--green);line-height:1">+1.5pp</div>
+          <div class="sm" style="margin-top:6px">Improved conversion rate</div>
+        </div>
+      </div>
+      <div class="sp" style="gap:14px">
+        <div class="callout-green">
+          <p class="ct" style="color:var(--green);margin-bottom:6px">What this means</p>
+          <p class="sm">Not only is more traffic arriving — a greater proportion of it is converting into enquiries. The site is attracting more commercially-qualified visitors and converting them more effectively. Both levers moving in the right direction simultaneously is a strong result.</p>
+        </div>
+        <div class="callout-blue">
+          <p class="ct" style="color:var(--blue);margin-bottom:6px">Traffic quality improving</p>
+          <p class="sm">The improvement in average ranking position (from 7.1 to 5.2) means Nick Brookes is capturing clicks from users who are further down the search results page — typically more committed, higher-intent visitors. This is reflected directly in the conversion rate uplift.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S8: OPPORTUNITIES
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s8"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Opportunities</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Identified from GSC data</p>
+    <h2 class="a2">High impressions, low CTR —<br><span class="gt">significant untapped click potential.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 sp" style="gap:14px;margin-top:8px">
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2px">Pages with high impressions but weak rankings</p>
+        <table class="tbl">
+          <thead><tr><th>Page</th><th>Impressions</th><th>Clicks</th><th>Avg Pos</th></tr></thead>
+          <tbody>
+            <tr><td><strong>/septic-tanks/</strong></td><td>93,348</td><td>92</td><td><span style="color:#ff7a5a">28.0</span></td></tr>
+            <tr><td><strong>/concrete/</strong></td><td>50,695</td><td>95</td><td><span style="color:#ff7a5a">44.5</span></td></tr>
+            <tr><td><strong>/skip-hire-chester/</strong></td><td>23,921</td><td>280</td><td><span style="color:var(--amber)">15.1</span></td></tr>
+            <tr><td><strong>/aggregates/</strong></td><td>14,569</td><td>120</td><td><span style="color:#ff7a5a">27.0</span></td></tr>
+            <tr><td><strong>/grab-hire/</strong></td><td>14,338</td><td>27</td><td><span style="color:#ff7a5a">39.0</span></td></tr>
+            <tr><td><strong>/skip-hire-wrexham/</strong></td><td>14,972</td><td>131</td><td><span style="color:var(--amber)">11.3</span></td></tr>
+            <tr><td><strong>/asbestos-removal/</strong></td><td>17,178</td><td>66</td><td><span style="color:#ff7a5a">39.1</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:2px">What the data suggests</p>
+        <div class="card">
+          <p class="ct" style="margin-bottom:4px">/septic-tanks/ &amp; /concrete/</p>
+          <p class="sm">Both pages have enormous impression volumes but rank in the 28–45 range — effectively invisible. These are high-value service pages. Strengthening content, title tags and internal linking could move them significantly.</p>
+        </div>
+        <div class="card">
+          <p class="ct" style="margin-bottom:4px">/aggregates/ — strong growth but room to improve</p>
+          <p class="sm">Clicks up +173% YoY (44 → 120) but average position is still 27. 14,569 impressions sitting largely uncaptured. This page has clear commercial intent behind it and would benefit from targeted optimisation.</p>
+        </div>
+        <div class="card">
+          <p class="ct" style="margin-bottom:4px">/grab-hire/ — 14k impressions, just 27 clicks</p>
+          <p class="sm">The generic grab hire page is appearing widely but converting almost none of its impressions. Ranking at position 39, it needs significant content and authority improvements to become competitive.</p>
+        </div>
+        <div class="callout-amber">
+          <p class="sm"><strong style="color:var(--white)">Check immediately:</strong> <span class="url-pill">/skip-hire-child/</span> and <span class="url-pill">/septic-tank-envirocare/</span> — both had 68–69 clicks in 2025 and have dropped out entirely in 2026. Possible redirect issue or page removal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+<!-- ═══════════════════════════════════════════════════
+     S9: NEXT STEPS
+════════════════════════════════════════════════════ -->
+<div class="slide amb" id="s9"><div class="si"><div class="box">
+  <div class="tb a1">
+    <div class="tb-l">
+      <div class="ll"><img src="https://laventusdigital.co.uk/wp-content/uploads/2024/07/Laventus-logo-white.png" alt="Laventus Digital"></div>
+      <div class="ls"></div>
+      <img src="https://www.nickbrookes.co.uk/wp-content/uploads/2024/03/logo_transparent.png" alt="Nick Brookes Group" style="height:22px;opacity:.75;object-fit:contain">
+    </div>
+    <div class="sl">Next Steps</div>
+  </div>
+  <div class="content">
+    <p class="ey a1">Recommended priorities</p>
+    <h2 class="a2">Consolidate the gains.<br><span class="gt">Target the gaps.</span></h2>
+    <div class="gl a2"></div>
+    <div class="a3 sp" style="gap:16px;margin-top:10px">
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px">Immediate actions</p>
+        <div class="blist">
+          <div class="bitem">
+            <div class="num-badge" style="background:var(--green);color:#000">1</div>
+            <div class="btxt"><strong>Investigate dropped pages</strong> — check <span class="url-pill">/skip-hire-child/</span> and <span class="url-pill">/septic-tank-envirocare/</span>. If removed, ensure 301 redirects are in place to recover any link equity.</div>
+          </div>
+          <div class="bitem">
+            <div class="num-badge" style="background:var(--green);color:#000">2</div>
+            <div class="btxt"><strong>Recover Chester, Northwich and Wrexham</strong> — refresh page content, strengthen title tags and H1s, and improve internal linking from the homepage and hub pages to these location pages.</div>
+          </div>
+          <div class="bitem">
+            <div class="num-badge" style="background:var(--green);color:#000">3</div>
+            <div class="btxt"><strong>Optimise /septic-tanks/ and /concrete/</strong> — both pages have substantial impression volumes (93k and 51k) but rank far too low to capture clicks. These are high-value commercial pages and a priority for content improvement.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px">Medium-term focus</p>
+        <div class="blist">
+          <div class="bitem">
+            <div class="num-badge">4</div>
+            <div class="btxt"><strong>Build out the aggregates page</strong> — clicks up +173% but average position is still 27. With 14,500+ impressions already being generated, a stronger, more comprehensive page could capture a significant volume of additional leads.</div>
+          </div>
+          <div class="bitem">
+            <div class="num-badge">5</div>
+            <div class="btxt"><strong>Strengthen the grab hire section</strong> — the hub page has 14,338 impressions at position 39. Individual location pages for grab hire (Northwich, Sandbach, Knutsford, Stoke) are all showing early impressions. A targeted push here mirrors the success of the skip hire location page strategy.</div>
+          </div>
+          <div class="bitem">
+            <div class="num-badge">6</div>
+            <div class="btxt"><strong>Continue location page expansion</strong> — the generic <span class="url-pill">/skip-hire/</span> page grew +157% YoY, signalling growing brand authority. New location pages for areas where demand exists (Stoke, Ellesmere, Warrington) should be developed to capture this.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div></div>
+
+</div><!-- /deck -->
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" id="nav">
+  <button class="nb" id="prevBtn" onclick="go(-1)">&#8592;</button>
+  <div class="nd" id="dots"></div>
+  <button class="nb" id="nextBtn" onclick="go(1)">&#8594;</button>
+  <span class="nc" id="counter">1 / 9</span>
+</nav>
+
+<script>
+const TOTAL = 9;
+let cur = 0;
+const slides = Array.from({length: TOTAL}, (_, i) => document.getElementById('s' + (i + 1)));
+const dotsEl = document.getElementById('dots');
+const counter = document.getElementById('counter');
+for (let i = 0; i < TOTAL; i++) {
+  const d = document.createElement('span');
+  d.className = 'ndot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goTo(i));
+  dotsEl.appendChild(d);
+}
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('active');
+  cur = (n + TOTAL) % TOTAL;
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('active');
+  counter.textContent = (cur + 1) + ' / ' + TOTAL;
+  const els = slides[cur].querySelectorAll('.a1,.a2,.a3,.a4,.a5,.a6');
+  els.forEach(el => { el.style.animation = 'none'; el.offsetHeight; el.style.animation = ''; });
+}
+function go(dir) { goTo(cur + dir); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(-1);
+});
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+}, {passive:true});
+</script>
+</body>
+</html>
